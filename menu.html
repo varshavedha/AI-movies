@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movie Recommender</title>
+</head>
+<body>
+  <h1>Movie Recommender</h1>
+  <button onclick="getRecommendations()">Get Recommendations</button>
+
+  <div id="recommendations"></div>
+
+  <script>
+    const movies = [/* paste your full movies array here */];
+
+    function getRecommendations() {
+      // Sample logic: pick 5 random movies from the list
+      const shuffled = movies.sort(() => 0.5 - Math.random());
+      const selected = shuffled.slice(0, 5);
+
+      const container = document.getElementById('recommendations');
+      container.innerHTML = '<h2>Recommended Movies:</h2><ul>' +
+        selected.map(movie => `<li>${movie.title}</li>`).join('') +
+        '</ul>';
+    }
+  </script>
+</body>
+</html>
